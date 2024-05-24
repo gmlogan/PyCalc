@@ -1,0 +1,7 @@
+{
+  "name": "PyCalc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
