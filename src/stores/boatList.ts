@@ -1,7 +1,7 @@
 //create an array of objects each of which are of type boatType
 const listOfBoats = [
   {
-    id: "0",
+    id: 0,
     boatName: "RS1001",
     boatPY: 1104,
     visible: true,
@@ -9,7 +9,7 @@ const listOfBoats = [
     refBoat: false,
   },
   {
-    id: "1",
+    id: 1,
     boatName: "D-Zero",
     boatPY: 1029,
     visible: true,
@@ -17,15 +17,15 @@ const listOfBoats = [
     refBoat: true,
   },
   {
-    id: "2",
-    boatName: "Europe",
+    id: 2,
+    boatName: "Europes",
     boatPY: 1141,
-    visible: true,
+    visible: false,
     finishTime: "DNF",
     refBoat: false,
   },
   {
-    id: "3",
+    id: 3,
     boatName: "RS200",
     boatPY: 1100,
     visible: true,

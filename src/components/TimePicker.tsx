@@ -8,19 +8,23 @@ import {
 } from "@ionic/react";
 import React from "react";
 import { useState, useEffect } from "react";
+import dayjs, { Dayjs } from "dayjs";
 
-export default function TimePicker(props) {
+interface Props {
+  handler: (value: Dayjs) => void;
+}
+
+const TimePicker: React.FC<Props> = ({ handler }) => {
   const Hours = Array.from(Array(24).keys());
   const Minutes = Array.from(Array(60).keys());
   const Seconds = Array.from(Array(60).keys());
-
-  const [hours, setHours] = useState<any>(0);
-  const [minutes, setMinutes] = useState<any>(0);
-  const [seconds, setSeconds] = useState<any>(0);
+  const [hours, setHours] = useState<any>(dayjs().hour());
+  const [minutes, setMinutes] = useState<any>(dayjs().minute());
+  const [seconds, setSeconds] = useState<any>(dayjs().second());
 
   useEffect(() => {
-    props.handler(hours * 3600 + minutes * 60 + seconds);
-  });
+    handler(dayjs().set("h", hours).set("m", minutes).set("s", seconds));
+  }, [hours, minutes, seconds]);
 
   return (
     <IonPicker color="blue">
@@ -62,4 +66,6 @@ export default function TimePicker(props) {
       </IonPickerColumn>
     </IonPicker>
   );
-}
+};
+
+export default TimePicker;

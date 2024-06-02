@@ -14,29 +14,22 @@ import {
   IonButton,
 } from "@ionic/react";
 
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import TimePicker from "../components/TimePicker";
 
 import useBoatStore from "../stores/boatStore";
 
-//looked ok "react-date-time-picker-tz";
-
 function TimesPage() {
-  const [startSeconds, setStartSeconds] = useState(0);
-  const [endSeconds, setEndSeconds] = useState(0);
-  const [secsDiff, setSecsDiff] = useState(0);
+  const setStartTime = useBoatStore((state) => state.setStartTime);
 
-  const setSecondsDiff = useBoatStore((state) => state.setSecondsDiff);
-  const secondsDiff = useBoatStore((state) => state.secondsDiff);
+  const setEndTime = useBoatStore((state) => state.setEndTime);
 
-  const handleStart = (v: number) => {
-    setStartSeconds(v);
-    setSecondsDiff(endSeconds - startSeconds);
+  const handleStart = (v: Dayjs) => {
+    setStartTime(v);
   };
-  const handleEnd = (v: number) => {
-    setEndSeconds(v);
-    setSecondsDiff(endSeconds - startSeconds);
+  const handleEnd = (v: Dayjs) => {
+    setEndTime(v);
   };
 
   return (
@@ -52,10 +45,6 @@ function TimesPage() {
         </IonLabel>
         <TimePicker handler={handleStart} />
         <TimePicker handler={handleEnd} />
-
-        <IonLabel>
-          Diff: {secsDiff}: {secondsDiff}
-        </IonLabel>
       </IonContent>
     </IonPage>
   );

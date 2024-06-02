@@ -1,13 +1,14 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import React from "react";
+import dayjs, { Dayjs } from "dayjs";
 //import data for boats
 
 import listOfBoats from "./boatList";
 
 //define the structure of the boattyoe that will for the boat list
 interface boatType {
-  id: string;
+  id: number;
   boatName: string;
   boatPY: number;
   visible: boolean;
@@ -18,16 +19,38 @@ interface boatType {
 
 type BoatState = {
   boatList: Array<boatType>;
-  secondsDiff: number;
-  setSecondsDiff: (s: number) => void;
+  startTime: Dayjs;
+  setStartTime: (s: Dayjs) => void;
+  endTime: Dayjs;
+  setEndTime: (s: Dayjs) => void;
+  toggleVisibility: (id: number) => void;
 };
 
-const useBoatStore = create<BoatState>((set) => ({
+const useBoatStore = create<BoatState>()((set) => ({
   boatList: listOfBoats,
-  secondsDiff: 0,
-  setSecondsDiff: (s) =>
-    set(() => ({
-      secondsDiff: s,
+
+  startTime: dayjs(),
+  endTime: dayjs(),
+  setStartTime: (s) =>
+    set((state) => ({
+      startTime: s,
+    })),
+  setEndTime: (s) =>
+    set((state) => ({
+      endTime: s,
+    })),
+  toggleVisibility: (id) =>
+    set((state) => ({
+      endTime: dayjs(),
+      boatList: state.boatList.map((boat) => {
+        if (id === boat.id) {
+          return { ...boat, visible: !boat.visible };
+        } else {
+          return boat;
+        }
+
+        //return { ...boat, visible: false };
+      }),
     })),
 }));
 export default useBoatStore;
