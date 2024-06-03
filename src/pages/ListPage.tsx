@@ -35,9 +35,6 @@ const ListPage: React.FC = () => {
             </div>
           ))}
         </IonList>
-        <label>Start {startTime.format("HH:mm:ss")}</label>
-        <div>End {endTime.format("HH:mm:ss")}</div>
-        <div>Seconds Diff: {endTime.diff(startTime, "s")}</div>
       </IonContent>
     </IonPage>
   );

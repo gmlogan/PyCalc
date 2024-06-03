@@ -26,7 +26,7 @@ type BoatState = {
   toggleVisibility: (id: number) => void;
 };
 
-const useBoatStore = create<BoatState>()((set) => ({
+const useBoatStore = create<BoatState>((set) => ({
   boatList: listOfBoats,
 
   startTime: dayjs(),
@@ -48,8 +48,6 @@ const useBoatStore = create<BoatState>()((set) => ({
         } else {
           return boat;
         }
-
-        //return { ...boat, visible: false };
       }),
     })),
 }));
