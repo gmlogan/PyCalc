@@ -27,7 +27,7 @@ const ListPage: React.FC = () => {
       <IonContent className="ion-padding">
         <IonList>
           {boats.map((boat: any, index: number) => (
-            <div hidden={!boat.visible}>
+            <div hidden={!boat.visible} key={boat.id}>
               <IonItem key={boat.id} color={boat.refBoat ? "primary" : ""}>
                 <IonLabel slot="start">{boat.boatName}</IonLabel>{" "}
                 <IonLabel slot="end">{boat.boatPY}</IonLabel>

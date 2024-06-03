@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { devtools, persist, createJSONStorage } from "zustand/middleware";
 import React from "react";
 import dayjs, { Dayjs } from "dayjs";
 //import data for boats
@@ -26,29 +26,37 @@ type BoatState = {
   toggleVisibility: (id: number) => void;
 };
 
-const useBoatStore = create<BoatState>((set) => ({
-  boatList: listOfBoats,
+const useBoatStore = create(
+  persist<BoatState>(
+    (set) => ({
+      boatList: listOfBoats,
 
-  startTime: dayjs(),
-  endTime: dayjs(),
-  setStartTime: (s) =>
-    set((state) => ({
-      startTime: s,
-    })),
-  setEndTime: (s) =>
-    set((state) => ({
-      endTime: s,
-    })),
-  toggleVisibility: (id) =>
-    set((state) => ({
+      startTime: dayjs(),
       endTime: dayjs(),
-      boatList: state.boatList.map((boat) => {
-        if (id === boat.id) {
-          return { ...boat, visible: !boat.visible };
-        } else {
-          return boat;
-        }
-      }),
-    })),
-}));
+      setStartTime: (s) =>
+        set((state) => ({
+          startTime: s,
+        })),
+      setEndTime: (s) =>
+        set((state) => ({
+          endTime: s,
+        })),
+      toggleVisibility: (id) =>
+        set((state) => ({
+          endTime: dayjs(),
+          boatList: state.boatList.map((boat) => {
+            if (id === boat.id) {
+              return { ...boat, visible: !boat.visible };
+            } else {
+              return boat;
+            }
+          }),
+        })),
+    }),
+    {
+      name: "boat-storage", // name of the item in the storage (must be unique)
+      storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+    }
+  )
+);
 export default useBoatStore;

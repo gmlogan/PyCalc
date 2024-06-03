@@ -20,7 +20,7 @@ const Settings: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Edit Boat List</IonTitle>
+          <IonTitle>Update Boats</IonTitle>
         </IonToolbar>
       </IonHeader>
 
