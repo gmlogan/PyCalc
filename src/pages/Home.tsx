@@ -10,12 +10,12 @@ import {
 import React from "react";
 import ListPage from "./ListPage";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>HOME</IonTitle>
+          <IonTitle>MyPyCalc</IonTitle>
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>

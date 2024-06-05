@@ -1,9 +1,11 @@
 import {
+  IonButtons,
   IonContent,
   IonHeader,
   IonItem,
   IonLabel,
   IonList,
+  IonMenuButton,
   IonPage,
   IonTitle,
   IonToolbar,
@@ -20,7 +22,10 @@ const ListPage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Boat List</IonTitle>
+          <IonTitle>Relative Times</IonTitle>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 

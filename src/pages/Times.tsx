@@ -38,7 +38,7 @@ const TimesPage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Time settings - Zustand</IonTitle>
+          <IonTitle>Set Start & End Times</IonTitle>
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
