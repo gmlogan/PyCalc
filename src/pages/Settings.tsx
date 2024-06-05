@@ -27,18 +27,16 @@ const Settings: React.FC = () => {
       <IonContent className="ion-padding">
         <IonList>
           {boats.map((boat: any, index: number) => (
-            <div>
-              <IonItem key={boat.id} color={boat.refBoat ? "primary" : ""}>
-                <IonLabel slot="start">{boat.boatName}</IonLabel>{" "}
-                <IonLabel slot="end">{boat.boatPY}</IonLabel>
-                <IonCheckbox
-                  checked={boat.visible}
-                  onClick={(e) => toggleVisibility(boat.id)}
-                >
-                  Visible
-                </IonCheckbox>
-              </IonItem>
-            </div>
+            <IonItem key={boat.id} color={boat.refBoat ? "primary" : ""}>
+              <IonLabel slot="start">{boat.boatName}</IonLabel>{" "}
+              <IonLabel slot="end">{boat.boatPY}</IonLabel>
+              <IonCheckbox
+                checked={boat.visible}
+                onClick={(e) => toggleVisibility(boat.id)}
+              >
+                Visible
+              </IonCheckbox>
+            </IonItem>
           ))}
         </IonList>
       </IonContent>
