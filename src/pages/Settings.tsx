@@ -8,6 +8,8 @@ import {
   IonTitle,
   IonToolbar,
   IonCheckbox,
+  IonButtons,
+  IonMenuButton,
 } from "@ionic/react";
 import React from "react";
 import useBoatStore from "../stores/boatStore";
@@ -21,6 +23,9 @@ const Settings: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Update Boats</IonTitle>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 

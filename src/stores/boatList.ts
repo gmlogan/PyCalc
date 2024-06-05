@@ -2,7 +2,7 @@
 const listOfBoats = [
   {
     id: 0,
-    boatName: "RS1001",
+    boatName: "RS100",
     boatPY: 1104,
     visible: true,
     finishTime: "DNF",

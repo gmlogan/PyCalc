@@ -12,6 +12,8 @@ import {
   IonPickerColumn,
   IonPickerColumnOption,
   IonButton,
+  IonButtons,
+  IonMenuButton,
 } from "@ionic/react";
 
 import dayjs, { Dayjs } from "dayjs";
@@ -20,7 +22,7 @@ import TimePicker from "../components/TimePicker";
 
 import useBoatStore from "../stores/boatStore";
 
-function TimesPage() {
+const TimesPage: React.FC = () => {
   const setStartTime = useBoatStore((state) => state.setStartTime);
 
   const setEndTime = useBoatStore((state) => state.setEndTime);
@@ -37,6 +39,9 @@ function TimesPage() {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Time settings - Zustand</IonTitle>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
@@ -48,6 +53,6 @@ function TimesPage() {
       </IonContent>
     </IonPage>
   );
-}
+};
 
 export default TimesPage;
