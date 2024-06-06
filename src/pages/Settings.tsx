@@ -10,6 +10,7 @@ import {
   IonCheckbox,
   IonButtons,
   IonMenuButton,
+  IonListHeader,
 } from "@ionic/react";
 import React from "react";
 import useBoatStore from "../stores/boatStore";
@@ -31,16 +32,19 @@ const Settings: React.FC = () => {
 
       <IonContent className="ion-padding">
         <IonList>
+          <IonListHeader>
+            <IonLabel>Name</IonLabel>
+            <IonLabel>Visibility</IonLabel>
+            <IonLabel>PY</IonLabel>
+          </IonListHeader>
           {boats.map((boat: any, index: number) => (
             <IonItem key={boat.id} color={boat.refBoat ? "primary" : ""}>
-              <IonLabel slot="start">{boat.boatName}</IonLabel>{" "}
-              <IonLabel slot="end">{boat.boatPY}</IonLabel>
+              <IonLabel>{boat.boatName}</IonLabel>{" "}
+              <IonLabel>{boat.boatPY}</IonLabel>
               <IonCheckbox
                 checked={boat.visible}
                 onClick={(e) => toggleVisibility(boat.id)}
-              >
-                Visible
-              </IonCheckbox>
+              ></IonCheckbox>
             </IonItem>
           ))}
         </IonList>
