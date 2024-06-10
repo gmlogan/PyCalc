@@ -1,0 +1,13 @@
+.flex1-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex1-container > div {
+  width: 100px;
+  margin-left: 0%;
+  margin-right: 0%;
+  text-align: left;
+
+  flex: 20%;
+}

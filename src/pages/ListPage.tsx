@@ -1,12 +1,15 @@
 import {
   IonButtons,
+  IonCol,
   IonContent,
+  IonGrid,
   IonHeader,
   IonItem,
   IonLabel,
   IonList,
   IonMenuButton,
   IonPage,
+  IonRow,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
@@ -34,8 +37,16 @@ const ListPage: React.FC = () => {
           {boats.map((boat: any, index: number) => (
             <div hidden={!boat.visible} key={boat.id}>
               <IonItem key={boat.id} color={boat.refBoat ? "primary" : ""}>
-                <IonLabel slot="start">{boat.boatName}</IonLabel>{" "}
-                <IonLabel slot="end">{boat.boatPY}</IonLabel>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol size="3">
+                      <IonLabel>{boat.boatName}</IonLabel>
+                    </IonCol>
+                    <IonCol size="3" offset="6">
+                      <IonLabel>{boat.boatPY}</IonLabel>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
               </IonItem>
             </div>
           ))}
