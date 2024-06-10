@@ -9,13 +9,14 @@ import {
 } from "@ionic/react";
 import React from "react";
 import ListPage from "./ListPage";
+import dayjs from "dayjs";
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>MyPyCalc</IonTitle>
+          <IonTitle>MyPyCalc </IonTitle>
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>

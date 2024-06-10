@@ -16,16 +16,16 @@ import {
 import React from "react";
 import useBoatStore from "../stores/boatStore";
 import dayjs from "dayjs";
+import { timestamp } from "../../node_modules/rxjs/src/internal/operators/timestamp";
 const ListPage: React.FC = () => {
   const boats = useBoatStore((state) => state.boatList);
   const startTime = useBoatStore((state) => state.startTime);
   const endTime = useBoatStore((state) => state.endTime);
-
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Relative Times</IonTitle>
+          <IonTitle>Relative Times - 2 </IonTitle>
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
