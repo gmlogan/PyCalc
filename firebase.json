@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "www",
+    "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
@@ -10,17 +10,11 @@
     ],
     "headers": [
       {
-        "sources": "/build/app/**",
-        "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=31536000" }
-        ]
-      },
-      {
-        "source": "ngsw-worker.js",
+        "source": "/**",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "no-cache"
+            "value": "public, max-age=31536000"
           }
         ]
       }
