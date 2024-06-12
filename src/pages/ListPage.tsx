@@ -25,7 +25,7 @@ const ListPage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Relative Times - 5 </IonTitle>
+          <IonTitle>Relative Times - 6FB </IonTitle>
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
